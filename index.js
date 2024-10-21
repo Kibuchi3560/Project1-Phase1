@@ -15,6 +15,25 @@ document.addEventListener("DOMContentLoaded", function () {
           });
   }
 
+  const configurationObject = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({
+                "name": "Aisha Mohamed",
+                "age": 4,
+                "height": "3'7\"",
+                "county": "Mombasa",
+                "hobbies": ["Drawing", "Dancing"],
+                "image": "https://images.unsplash.com/photo-1553179909-4dbbe843479e?q=80&w=811&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "likes": 0
+    }),
+  };
+  
+  fetch("http://localhost:3000/kids", configurationObject);
+
   function displayKids(kidsData) {
       const kidsContainer = document.getElementById("kidsContainer");
       kidsContainer.innerHTML = "";
@@ -37,8 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
           const beginButton = kidElement.querySelector(".begin-button");
           beginButton.addEventListener("click", function () {
               alert(`Thank you for choosing ${kid.name}. You can now begin your process.`);
-          });
       });
+
+      fetch()
+  });
 
       
       const likeButtons = document.querySelectorAll(".like-button");
@@ -50,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
               button.textContent = `Like (${kid.likes})`;
           });
       });
-  }
+    }
 
   const submitButton = document.querySelector(".form-submit");
   submitButton.addEventListener("click", function () {
@@ -91,3 +112,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   splitScreen(); 
 });
+
